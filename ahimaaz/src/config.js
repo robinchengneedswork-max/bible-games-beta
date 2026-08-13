@@ -111,11 +111,68 @@ const PASS_TAUNTS = [
 ];
 
 // ── Joab's charge, shown before the run ──────────
+// Every quoted line is 2 Samuel 18. The notes underneath are not — they are the
+// context the chapter assumes you already have, because its first readers did.
 const BRIEF_LINES = [
-  { who:'AHIMAAZ', text:'Let me now run, and bear the king tidings, how that the LORD hath avenged him of his enemies.' },
-  { who:'JOAB',    text:'Thou shalt not bear tidings this day… because the king\'s son is dead.' },
-  { who:'AHIMAAZ', text:'But howsoever, let me, I pray thee, also run after the Cushite.' },
-  { who:'JOAB',    text:'Run.' },
+  { who:'AHIMAAZ', text:'Let me now run, and bear the king tidings, how that the LORD hath avenged him of his enemies.',
+    note:'He is not volunteering out of nowhere. He has run for David before: when Absalom took Jerusalem, '
+       + 'Ahimaaz and Jonathan waited at the spring En-rogel for word out of the city, and were nearly caught '
+       + 'carrying it. They went down a well at Bahurim, and a woman spread a covering over the mouth of it and '
+       + 'scattered ground corn on top, and Absalom\'s men searched the road above their heads and found nothing. '
+       + 'Then they climbed out and ran, and David crossed the Jordan that night because they did. '
+       + '<span class="ref">2 Samuel 17:17&ndash;21</span>',
+    refs:[
+      { t:'the well and the ground corn — commentaries on 17:19',
+        u:'https://biblehub.com/commentaries/2_samuel/17-19.htm' },
+      { t:'Barnes: "Ahimaaz was a well-known runner" — on 18:19',
+        u:'https://biblehub.com/commentaries/2_samuel/18-19.htm' },
+    ] },
+
+  { who:'JOAB',    text:'Thou shalt not bear tidings this day… because the king\'s son is dead.',
+    note:'Joab is not doubting the legs. He is doing arithmetic. David executed the Amalekite who brought him word '
+       + 'of Saul\'s death, and executed the two men who brought him Ish-bosheth\'s head. A runner carrying this '
+       + 'particular news is a runner with a price on him &mdash; so Joab sends a foreigner nobody will miss. '
+       + 'The refusal is the last kind thing anyone does for Ahimaaz in this chapter. '
+       + '<span class="ref">2 Samuel 1:15; 4:12</span>',
+    refs:[
+      { t:'Ellicott &amp; Cambridge: the Cushite was a man "who would have little to lose by the king\'s displeasure"',
+        u:'https://biblehub.com/commentaries/2_samuel/18-21.htm' },
+      { t:'Precept Austin: Joab knows what David does to messengers',
+        u:'https://www.preceptaustin.org/2-samuel-18-commentary' },
+    ] },
+
+  { who:'AHIMAAZ', text:'But howsoever, let me, I pray thee, also run after the Cushite.',
+    note:'"Howsoever" is two words of Hebrew &mdash; <span class="heb">&#1493;&#1460;&#1497;&#1492;&#1460;&#1497; '
+       + '&#1502;&#1464;&#1492;</span>, <i>wihi mah</i>, "and let be &mdash; what." Come what may. It is a strange '
+       + 'thing to say out loud. He is not arguing that the news is good; Joab has just told him it is not. He is '
+       + 'agreeing, in advance and unread, to whatever this costs him. He does not know the price yet. He has '
+       + 'already said yes to it. '
+       + '<span class="ref">2 Samuel 18:22</span>',
+    refs:[
+      { t:'the Hebrew, word by word — interlinear of 18:22',
+        u:'https://biblehub.com/text/2_samuel/18-22.htm' },
+    ] },
+
+  { who:'JOAB',    text:'Run.',
+    note:'Joab stops arguing. That is not the same as agreeing. What he has just permitted is a race Ahimaaz '
+       + 'can actually win: the Cushite goes over the hills, the short hard way, and Ahimaaz will take the '
+       + '<i>kikkar</i>, the flat of the Jordan valley &mdash; further to run and faster to run it.',
+    refs:[
+      { t:'Barnes, Gill, Keil&ndash;Delitzsch on the two roads — on 18:23',
+        u:'https://biblehub.com/commentaries/2_samuel/18-23.htm' },
+    ] },
+];
+
+// ── Where this reading comes from, shown on the ending card ──
+const SOURCES = [
+  { t:'The tradition splits here: Ellicott calls it a lie, the Pulpit Commentary calls it mercy — on 18:29',
+    u:'https://biblehub.com/commentaries/2_samuel/18-29.htm' },
+  { t:'Matthew Henry on the whole passage, 18:19&ndash;33',
+    u:'https://www.bibliaplus.org/en/commentaries/2/matthew-henry-commentary-on-the-whole-bible/2-samuel/18/19-33' },
+  { t:'Precept Austin: verse-by-verse through 2 Samuel 18',
+    u:'https://www.preceptaustin.org/2-samuel-18-commentary' },
+  { t:'2 Samuel and the Architecture of Poetic Justice — Journal of Hebrew Scriptures',
+    u:'https://jhsonline.org/index.php/jhs/article/view/29603' },
 ];
 
 // ── Fail cards ───────────────────────────────────

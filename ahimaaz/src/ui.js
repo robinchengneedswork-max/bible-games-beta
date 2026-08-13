@@ -15,12 +15,24 @@ function showTitle() {
   showScreen('titleScreen');
 }
 
+// commentary links — they leave the game, so they open in a new tab
+function refsHTML(refs) {
+  if (!refs || !refs.length) return '';
+  let h = '<span class="refs">';
+  for (let i = 0; i < refs.length; i++)
+    h += '<a href="' + refs[i].u + '" target="_blank" rel="noopener">' + refs[i].t + '</a>';
+  return h + '</span>';
+}
+
 function showBrief() {
   showScreen('briefScreen');
   const line = BRIEF_LINES[GS.briefIdx];
   $('briefWho').textContent = line.who;
   $('briefText').textContent = '"' + line.text + '"';
   $('briefStep').textContent = (GS.briefIdx + 1) + ' / ' + BRIEF_LINES.length;
+  // the gloss under the verse — authorial voice, not scripture, so it is set apart
+  $('briefNote').innerHTML = (line.note || '') + refsHTML(line.refs);
+  $('briefNote').style.display = line.note ? '' : 'none';
 }
 
 function showRunScreen() {
@@ -64,6 +76,8 @@ function showEnding() {
     body = '<p class="verse">"I saw a great tumult, but I knew not what it was."</p>' +
       '<p>You ran the whole plain to say nothing. You outran the Cushite for the right to stand in front of ' +
       'a father and go quiet — and Joab, who would not send you, had already seen this coming.</p>' +
+      '<p><i>Come what may</i>, you told him, back where the argument was cheap. You meant it about the running. ' +
+      'The bill, when it came, was not for the running.</p>' +
       '<p>The king sets you aside. <i>"Turn aside, and stand here."</i> And you stand there while the Cushite ' +
       'comes up behind you and says it plainly.</p>';
   } else if (GS.answer === 'truth') {
@@ -71,7 +85,8 @@ function showEnding() {
     body = '<p class="verse">"The young man is dead."</p>' +
       '<p>Not what Ahimaaz said. He ran faster than the Cushite and then could not make his mouth do it — ' +
       'that is the whole point of the story, and you have gone and spoiled it by being brave.</p>' +
-      '<p>The king does not thank you for the speed.</p>';
+      '<p>The king does not thank you for the speed. But it is the thing you actually promised Joab on the way ' +
+      'out of the wood, in two words, before you knew what they would cost: <i>come what may</i>.</p>';
   } else {
     title = 'THE CUSHITE BORE THE TIDINGS';
     body = '<p class="verse">"Tidings, my lord the king: for the LORD hath avenged thee this day."</p>' +
@@ -83,6 +98,12 @@ function showEnding() {
     '<p class="lament">"O my son Absalom, my son, my son Absalom! would God I had died for thee, ' +
     'O Absalom, my son, my son!"</p>' +
     '<p class="cite">2 Samuel 18:19&ndash;33</p>';
+  $('endSources').innerHTML =
+    '<details class="sources"><summary>Where this reading comes from</summary>' +
+    '<p>Nothing above is invented except the running. The chapter does not tell you why Ahimaaz went quiet, ' +
+    'and the commentators have never agreed &mdash; some read a lie, some read mercy, some read a man who ' +
+    'understood Joab about four seconds too late.</p>' +
+    refsHTML(SOURCES) + '</details>';
   $('endStats').textContent = GS.wonRace
     ? 'You beat him to the gate in ' + GS.runT.toFixed(1) + 's.'
     : 'He beat you to the gate.';

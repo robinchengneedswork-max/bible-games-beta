@@ -57,6 +57,41 @@ p { font-size: 16px; line-height: 1.62; margin-bottom: 13px; }
   margin-top: 22px; padding-top: 18px; border-top: 1px solid #ddc9a6;
 }
 .cite { font-size: 12px; letter-spacing: 0.2em; color: #a2724a; text-transform: uppercase; }
+
+/* the gloss under a verse — commentary, deliberately not scripture */
+.note {
+  font-size: 14px; line-height: 1.7; text-align: left;
+  color: #6b4a30; background: #efe2c6;
+  border: 1px solid #ddc9a6; border-left: none;
+  padding: 14px 16px; margin: 0 0 4px;
+}
+.note .ref {
+  display: block; margin-top: 8px;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #a2724a;
+}
+.note .heb { font-size: 17px; color: #7a3a24; letter-spacing: 0.02em; }
+
+/* commentary links */
+.refs { display: block; margin-top: 12px; padding-top: 10px; border-top: 1px solid #ddc9a6; }
+.refs a {
+  display: block; font-size: 12px; line-height: 1.5; margin-top: 5px;
+  color: #8a4a2f; text-decoration: none; border-bottom: 1px dotted #c0a179;
+}
+.refs a:hover { color: #b8452f; border-bottom-style: solid; }
+.refs a::before { content: '\2197\00a0'; color: #a2724a; }
+
+/* the sources fold on the ending card */
+.sources { text-align: left; margin-top: 20px; border-top: 1px solid #ddc9a6; padding-top: 14px; }
+.sources summary {
+  cursor: pointer; list-style: none;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #a2724a;
+}
+.sources summary::-webkit-details-marker { display: none; }
+.sources summary::before { content: '+\00a0'; }
+.sources[open] summary::before { content: '\2013\00a0'; }
+.sources summary:hover { color: #b8452f; }
+.sources p { font-size: 14px; line-height: 1.65; color: #6b4a30; margin: 12px 0 0; }
+.sources .refs { border-top: none; padding-top: 0; }
 .says { text-align: left; }
 .says b { letter-spacing: 0.12em; font-size: 13px; }
 

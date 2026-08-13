@@ -34,7 +34,7 @@ const canvas = {
 
 function makeEl() {
   return {
-    textContent: '', innerHTML: '', value: '',
+    textContent: '', innerHTML: '', value: '', style: {},
     classList: { _s: new Set(), add(c) { this._s.add(c); }, remove(c) { this._s.delete(c); },
                  contains(c) { return this._s.has(c); } },
     addEventListener() {}, appendChild() {},
@@ -92,7 +92,7 @@ if (loadErr) { console.log(`\n${pass} passed, ${fail} failed`); process.exit(1);
 const api = vm.runInContext(`({
   GS, KEYS, startRun, beginBrief, advanceBrief, updateRun, updateSprawl, drawFrame,
   toAudience, answerDavid, showTitle, resetRun, bodyX, arrive,
-  PHYS_DT, PX_PER_CUBIT, GOAL_CUBITS, CUSHITE_PACE, CUSHITE_LEAD, FALL_GRACE_MS, BRIEF_LINES
+  PHYS_DT, PX_PER_CUBIT, GOAL_CUBITS, CUSHITE_PACE, CUSHITE_LEAD, FALL_GRACE_MS, BRIEF_LINES, SOURCES
 })`, ctx);
 
 // Move the WHOLE body, not one point — shifting a single node just gets
@@ -112,7 +112,14 @@ const key = (code, down) => {
 chk('starts on the title screen', api.GS.phase === 'title', 'phase=' + api.GS.phase);
 key('Space', true);
 chk('SPACE opens Joab\'s charge', api.GS.phase === 'brief', 'phase=' + api.GS.phase);
+chk('the charge glosses the well at Bahurim', /Bahurim/.test(els.briefNote.innerHTML));
 for (let i = 0; i < api.BRIEF_LINES.length; i++) key('Space', true);
+chk('the charge glosses "come what may"',
+    api.BRIEF_LINES.some(l => /come what may/i.test(l.note || '')));
+const allRefs = api.BRIEF_LINES.flatMap(l => l.refs || []).concat(api.SOURCES);
+chk('every commentary link is https and labelled',
+    allRefs.length > 0 && allRefs.every(r => /^https:\/\//.test(r.u) && r.t.length > 8),
+    allRefs.length + ' links');
 chk('the charge leads into the run', api.GS.phase === 'run', 'phase=' + api.GS.phase);
 
 // ── 2. frozen at the line ────────────────────────
@@ -211,6 +218,7 @@ chk('a win leads to the king\'s question', api.GS.phase === 'audience', 'phase='
 key('Digit1', true);
 chk('answering ends the story', api.GS.phase === 'ending', 'phase=' + api.GS.phase);
 chk('the ending names the dodge', /tumult/i.test(els.endBody.innerHTML));
+chk('the ending offers its sources', /biblehub/.test(els.endSources.innerHTML));
 
 // ── 8. losing the race skips the question ────────
 api.startRun();
