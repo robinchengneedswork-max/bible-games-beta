@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bible Games &mdash; beta</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #2b1b10;
+    background: radial-gradient(ellipse at 50% 30%, #f3c98b 0%, #c98a4e 70%, #8a5535 100%);
+    display: flex; align-items: center; justify-content: center;
+    padding: 28px;
+  }
+  .wrap { width: min(640px, 100%); }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: #7a4f2c; margin-bottom: 14px; text-align: center;
+  }
+  h1 {
+    font-size: clamp(30px, 7vw, 50px); letter-spacing: 0.04em;
+    text-align: center; margin-bottom: 8px;
+  }
+  .sub {
+    text-align: center; font-style: italic; color: #6d4326;
+    margin-bottom: 30px; font-size: 15px;
+  }
+  a.game {
+    display: block; text-decoration: none; color: inherit;
+    background: #f6ecd8; border: 1px solid #b79a72;
+    box-shadow: 0 10px 34px rgba(43, 27, 16, 0.32);
+    padding: 22px 24px; margin-bottom: 14px;
+  }
+  a.game:hover { background: #fffaf0; border-color: #b8452f; }
+  a.game h2 { font-size: 23px; letter-spacing: 0.05em; margin-bottom: 4px; }
+  a.game .ref {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #a2724a; margin-bottom: 10px;
+  }
+  a.game p { font-size: 15px; line-height: 1.55; }
+  a.game .keys {
+    margin-top: 12px; font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: #8a5535;
+  }
+  footer {
+    text-align: center; margin-top: 26px; font-size: 12px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: #7a4f2c;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow">Beta</div>
+    <h1>BIBLE GAMES</h1>
+    <div class="sub">Small browser games out of very old stories.</div>
+
+    <a class="game" href="ahimaaz/index.html">
+      <h2>AHIMAAZ &mdash; The Way of the Plain</h2>
+      <div class="ref">2 Samuel 18</div>
+      <p>Joab sent the Cushite first. You begged to run anyway. Outrun him to the gate of
+         Mahanaim &mdash; then stand in front of the king, out of breath, while he asks you
+         the one thing you did not want to be asked.</p>
+      <div class="keys">Q W O P &middot; a QWOP-like &middot; keyboard only</div>
+    </a>
+
+    <footer>More to come</footer>
+  </div>
+</body>
+</html>

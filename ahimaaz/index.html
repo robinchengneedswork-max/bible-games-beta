@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AHIMAAZ &mdash; The Way of the Plain</title>
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+<!-- TITLE -->
+<div id="titleScreen" class="screen card-screen active">
+  <div class="card">
+    <div class="eyebrow">2 Samuel 18</div>
+    <h1>AHIMAAZ<span>The Way of the Plain</span></h1>
+    <p class="verse">"And Ahimaaz ran by the way of the plain, and overran the Cushite."</p>
+    <p>Joab sent the Cushite first. You begged to run anyway. He is ahead of you, he does not
+       stumble, and he is carrying the news you are about to refuse to say.</p>
+    <p><b>Beat him to the gate of Mahanaim.</b></p>
+    <div class="keys">
+      <div class="key"><b>Q</b><i>right thigh</i></div>
+      <div class="key"><b>W</b><i>left thigh</i></div>
+      <div class="key"><b>O</b><i>right calf</i></div>
+      <div class="key"><b>P</b><i>left calf</i></div>
+    </div>
+    <p class="hint">each pair fights itself &mdash; you are steering a man, badly</p>
+    <button class="btn" onclick="beginBrief()">LET ME RUN</button>
+    <div class="hint">or press SPACE</div>
+  </div>
+</div>
+
+<!-- JOAB'S CHARGE -->
+<div id="briefScreen" class="screen card-screen">
+  <div class="card">
+    <div class="eyebrow">Before the wood of Ephraim &mdash; <span id="briefStep"></span></div>
+    <h2 id="briefWho">AHIMAAZ</h2>
+    <p class="verse" id="briefText"></p>
+    <button class="btn" onclick="advanceBrief()">GO ON</button>
+    <div class="hint">SPACE</div>
+  </div>
+</div>
+
+<!-- THE RUN -->
+<div id="gameScreen" class="screen">
+  <canvas id="gameCanvas"></canvas>
+</div>
+
+<!-- FALLEN -->
+<div id="fallenScreen" class="screen card-screen overlay">
+  <div class="card">
+    <div class="eyebrow">You are down</div>
+    <h2>THE PLAIN TAKES YOU</h2>
+    <p class="verse" id="fallLine"></p>
+    <div class="stats">
+      <div class="stat"><b id="fallDist">0</b><i>cubits</i></div>
+      <div class="stat"><b id="fallBest">0</b><i>best</i></div>
+      <div class="stat"><b id="fallCush">0</b><i>the Cushite</i></div>
+    </div>
+    <button class="btn" onclick="startRun()">RUN AGAIN</button>
+    <div class="hint">SPACE or R</div>
+  </div>
+</div>
+
+<!-- ARRIVAL -->
+<div id="arriveScreen" class="screen card-screen overlay">
+  <div class="card">
+    <div class="eyebrow">Arrived in <span id="arriveTime"></span></div>
+    <h2 id="arriveTitle"></h2>
+    <div id="arriveBody"></div>
+    <button class="btn" id="arriveBtn" onclick="toAudience()"></button>
+  </div>
+</div>
+
+<!-- THE KING'S QUESTION -->
+<div id="audienceScreen" class="screen card-screen overlay">
+  <div class="card">
+    <div class="eyebrow">Between the two gates</div>
+    <h2>"IS THE YOUNG MAN ABSALOM SAFE?"</h2>
+    <p>You have run further and faster than the man Joab trusted with this. You are standing in front
+       of the king, out of breath, and he has asked you the one thing you did not want to be asked.</p>
+    <button class="choice" onclick="answerDavid('dodge')">
+      <s>1 &mdash; what Ahimaaz said</s>
+      <em>"I saw a great tumult, but I knew not what it was."</em>
+    </button>
+    <button class="choice" onclick="answerDavid('truth')">
+      <s>2 &mdash; what you know</s>
+      <em>"The young man is dead."</em>
+    </button>
+  </div>
+</div>
+
+<!-- ENDING -->
+<div id="endScreen" class="screen card-screen">
+  <div class="card">
+    <div class="eyebrow">The end of it</div>
+    <h2 id="endTitle"></h2>
+    <div id="endBody"></div>
+    <p class="hint" id="endStats"></p>
+    <button class="btn" onclick="showTitle()">RUN IT AGAIN</button>
+    <div class="hint">SPACE</div>
+  </div>
+</div>
+
+<!-- JS modules in dependency order -->
+<script src="src/config.js"></script>
+<script src="src/audio.js"></script>
+<script src="src/ragdoll.js"></script>
+<script src="src/state.js"></script>
+<script src="src/input.js"></script>
+<script src="src/logic.js"></script>
+<script src="src/render.js"></script>
+<script src="src/ui.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>

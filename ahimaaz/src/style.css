@@ -1,0 +1,110 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: #2b1b10;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #2b1b10;
+  user-select: none;
+}
+
+/* ── screen manager ────────────────────────────── */
+.screen { position: absolute; inset: 0; display: none; }
+.screen.active { display: flex; }
+
+/* the parchment cards */
+.card-screen {
+  align-items: center; justify-content: center;
+  background: radial-gradient(ellipse at 50% 35%, #f3c98b 0%, #c98a4e 70%, #8a5535 100%);
+  padding: 24px;
+}
+
+.card {
+  width: min(680px, 92vw);
+  background: #f6ecd8;
+  border: 1px solid #b79a72;
+  box-shadow: 0 18px 60px rgba(43, 27, 16, 0.45);
+  padding: 38px 42px;
+  text-align: center;
+  max-height: 92vh;
+  overflow-y: auto;
+}
+
+.eyebrow {
+  font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: #a2724a; margin-bottom: 16px;
+}
+
+h1 {
+  font-size: clamp(30px, 6vw, 52px);
+  letter-spacing: 0.04em; line-height: 1.05; font-weight: 700;
+  margin-bottom: 6px;
+}
+h1 span { display: block; font-size: 0.42em; letter-spacing: 0.3em; color: #a2724a; margin-top: 12px; }
+
+h2 { font-size: clamp(20px, 3.4vw, 30px); letter-spacing: 0.05em; margin-bottom: 14px; }
+
+p { font-size: 16px; line-height: 1.62; margin-bottom: 13px; }
+
+.verse {
+  font-style: italic; font-size: 19px; color: #7a3a24;
+  border-left: 3px solid #b8452f; padding-left: 16px; text-align: left;
+  margin: 18px 0;
+}
+.lament {
+  font-style: italic; font-size: 17px; color: #7a3a24;
+  margin-top: 22px; padding-top: 18px; border-top: 1px solid #ddc9a6;
+}
+.cite { font-size: 12px; letter-spacing: 0.2em; color: #a2724a; text-transform: uppercase; }
+.says { text-align: left; }
+.says b { letter-spacing: 0.12em; font-size: 13px; }
+
+.keys {
+  display: flex; gap: 10px; justify-content: center; margin: 22px 0 6px;
+  flex-wrap: wrap;
+}
+.key {
+  min-width: 92px;
+  border: 1px solid #c0a179; background: #fffaf0;
+  padding: 10px 12px;
+}
+.key b { display: block; font-size: 22px; letter-spacing: 0.1em; }
+.key i { font-style: normal; font-size: 11px; letter-spacing: 0.14em; color: #a2724a; text-transform: uppercase; }
+
+.btn {
+  font-family: inherit; font-size: 14px; letter-spacing: 0.22em;
+  text-transform: uppercase; cursor: pointer;
+  background: #b8452f; color: #f6ecd8;
+  border: none; padding: 15px 34px; margin-top: 22px;
+}
+.btn:hover { background: #96341f; }
+.btn.alt { background: transparent; color: #8a5535; border: 1px solid #c0a179; }
+.btn.alt:hover { background: #ece0c8; }
+
+.hint { font-size: 12px; letter-spacing: 0.16em; color: #a2724a; text-transform: uppercase; margin-top: 18px; }
+
+/* ── the run ───────────────────────────────────── */
+#gameScreen { background: #e08a4e; }
+#gameCanvas { width: 100%; height: 100%; display: block; }
+
+/* ── stat strip on the fail card ───────────────── */
+.stats { display: flex; justify-content: center; gap: 34px; margin: 20px 0 4px; }
+.stat b { display: block; font-size: 30px; line-height: 1; }
+.stat i { font-style: normal; font-size: 10px; letter-spacing: 0.2em; color: #a2724a; text-transform: uppercase; }
+
+/* ── the king's question ───────────────────────── */
+.choice {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  font-family: inherit; font-size: 16px; line-height: 1.5;
+  background: #fffaf0; border: 1px solid #c0a179;
+  padding: 16px 18px; margin-top: 12px;
+}
+.choice:hover { background: #f0e3c8; border-color: #b8452f; }
+.choice em { font-style: italic; }
+.choice s { display: block; text-decoration: none; font-size: 11px; letter-spacing: 0.18em;
+            color: #a2724a; text-transform: uppercase; margin-bottom: 6px; }
+
+/* the fail and arrival cards sit over the live canvas */
+.overlay { background: rgba(43, 27, 16, 0.55); }
+.overlay .card { background: #f6ecd8f2; }
